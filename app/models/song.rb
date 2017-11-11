@@ -13,6 +13,11 @@ class Song < ActiveRecord::Base
     self.artist = Artist.find_or_create_by(name: name)
   end
 
+  def genre_name=(name)
+    genre = Genre.find_or_create_by(name: name)
+    self.genre = genre
+  end
+
   def note_contents
     self.notes.map{|note| note.content}
   end
