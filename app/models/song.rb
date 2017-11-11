@@ -19,9 +19,8 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-  self.try(:genre).try(:name)
-end
-
+    self.try(:genre).try(:name)
+  end
 
   def note_contents
     self.notes.map{|note| note.content}
