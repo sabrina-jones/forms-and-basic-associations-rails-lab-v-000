@@ -17,11 +17,10 @@ class Song < ActiveRecord::Base
     self.notes.map{|note| note.content}
   end
 
-  def note_contents=(array_of_notes)
-    array_of_notes.each do |one_note|
-      note = self.notes.build(content: one_note)
+  def note_contents=(notes)
+     notes.each do |content|
+      note = self.notes.build(content: content)
       note.save
     end
   end
 end
-
